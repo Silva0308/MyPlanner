@@ -20,7 +20,7 @@ public class Main {
 //        UserInterface userInterface = new UserInterface(scanner,menu,myP);
 //        userInterface.start();
 
-        myP.sort();
+        myP.sortByPrior();
         myP.showAll();
 
     }
