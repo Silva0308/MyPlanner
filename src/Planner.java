@@ -1,34 +1,44 @@
 import java.util.*;
 
-import static java.util.Collection.*;
 
-public class Planner {
-    private final List<Task> tasks ;
+public class Planner implements Iterable<Task> {
+    private final List<Task> tasks;
 
     public Planner() {
         this.tasks = new ArrayList<>();
     }
 
-    public void add(Task task){
+    public void add(Task task) {
         this.tasks.add(task);
     }
 
-    public void showAll(){
+    public int getSize() {
+        return tasks.size();
+    }
+
+    public void showAll() {
         for (Task task : tasks) {
             System.out.println(task);
         }
     }
 
-    public Task getTask(String subject) {  //поиск по названию задачи
+    public Task getBySub(String subject) {  //поиск по названию задачи
         return tasks.stream()
-                .filter(task -> task. getSubject().equals(subject))
+                .filter(task -> task.getSubject().equals(subject))
                 .findFirst()
                 .orElse(null);
     }
 
-    public void totalSearch(String keyword){
+    public Task getById(int id) {  //поиск по названию задачи
+        return tasks.stream()
+                .filter(task -> task.getId() == (id))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public void totalSearch(String keyword) {
         int res = 0;
-        System.out.println("Вы ищете задачи по слову: "+keyword);
+        System.out.println("Вы ищете задачи по слову: " + keyword);
         for (Task task : tasks) {
             String temp = task.toString();
             if (temp.toLowerCase().contains(keyword.toLowerCase())) {
@@ -42,33 +52,26 @@ public class Planner {
         }
     }
 
-public void sortByPrior(){
-    Collections.sort(tasks);
+    public void sort() {
+        Collections.sort(tasks);
+    }
+
+    public void sortByPrior() {
+        Comparator<Task> priorComp = new TaskComparator();
+        tasks.sort(priorComp);
+    }
+
+    @Override
+    public Iterator<Task> iterator() {
+        return new PlannerIterator(this);
+    }
+
+    public Task getTask(int index) {
+        return tasks.get(index);
+    }
 }
 
-}
 
-
-
-    //    public void writeNewTask() {
-//        Scanner iScan = new Scanner(System.in);
-//
-//        System.out.println("Добавление задачи в планер. \nПоставьте срок исполнения:");
-//        String endOfTask = iScan.nextLine();
-//
-//        System.out.println("\nАвтор задачи:");
-//        String author = iScan.nextLine();
-//
-//        System.out.println("\nЧто нужно сделать:");
-//        String subject = iScan.nextLine();
-//
-//        System.out.println("\nУстановите приоритет: 0 - не устанавливать, 1 - низкий, 2 - средний, 3 - высокий");
-//        try {
-//            int priority = iScan.nextInt();
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
 
 

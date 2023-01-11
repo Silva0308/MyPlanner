@@ -5,14 +5,14 @@ import java.time.format.DateTimeFormatter;
 /**
  * Это класс задача
  */
-public class Task implements Comparable <Task>{
+public class Task implements Comparable<Task> {
     private String subject;
     private String author;
-    private String addTime;
-    private String addDate;
+    private final String addTime;
+    private final String addDate;
     private int priority;
     private String endOfTask;
-    private int id;
+    private final int id;
     private static int count;
 
     static {
@@ -49,10 +49,10 @@ public class Task implements Comparable <Task>{
         this.id = ++count;
     }
 
-    public Task()
-    {   this.addTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm"));
+    public Task() {
+        this.addTime = LocalTime.now().format(DateTimeFormatter.ofPattern("hh:mm"));
         this.addDate = LocalDate.now().format(DateTimeFormatter.ofPattern("dd:MM:yyyy"));
-        this.subject= "Задача "+(count);
+        this.subject = "Задача " + (count);
         this.author = "неизвестный";
         this.priority = 0;
         this.endOfTask = "бессрочно";
@@ -88,18 +88,16 @@ public class Task implements Comparable <Task>{
             case 3 -> "наивысший приоритет";
             default -> "приоритет не установлен";
         };
-        }
-public int getPriorCode(){
+    }
+
+    public int getPriorCode() {
         return priority;
-}
+    }
 
     public void setPriority(int priority) {
         this.priority = priority;
     }
 
-    public String getEndOfTask() {
-        return endOfTask;
-    }
 
     public void setEndOfTask(String endOfTask) {
         this.endOfTask = endOfTask;
@@ -107,7 +105,7 @@ public int getPriorCode(){
 
     @Override
     public String toString() {
-        return "№" + getId() +' '+  getSubject() +
+        return "№" + getId() + ' ' + getSubject() +
                 ", автор: " + getAuthor() +
                 ", время добавления: " + addTime +
                 ", дата добавления: " + addDate +
@@ -117,10 +115,8 @@ public int getPriorCode(){
 
     @Override
     public int compareTo(Task o) {
-        int comparePrior
-                = ((Task)o).getPriorCode();
-
-        //  For Ascending order
-        return this.priority -comparePrior;
+        int compareId
+                = o.getId();
+        return this.id - compareId;
     }
 }

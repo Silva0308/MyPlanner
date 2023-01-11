@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -5,11 +6,14 @@ public class UserInterface {
     private final Scanner scanner;
     private final Menu menu;
     private final Planner planner;
+    private final Add add;
 
-    public UserInterface(Scanner scanner, Menu menu, Planner planner) {
+    public UserInterface(Scanner scanner, Menu menu, Planner planner, Add add) {
         this.scanner = scanner;
         this.menu = menu;
         this.planner = planner;
+        this.add = add;
+
     }
 
     public void start() {
@@ -17,29 +21,31 @@ public class UserInterface {
         while (true) {
             switch (menu.selectFunction()) {
                 case "1": // показать все задачи
+                    planner.sort();
                     planner.showAll();
                     break;
                 case "2": // найти задачу по теме
                     System.out.print("Введите тему задачи: ");
-                    System.out.println(planner.getTask(scanner.nextLine()));
+                    System.out.println(planner.getBySub(scanner.nextLine()));
                     break;
                 case "3": // найти задачу по автору
                     System.out.print("Введите имя: ");
                     planner.totalSearch(scanner.nextLine());
                     break;
-//                case "4": // найти задачи по приоритету
-//                    System.out.println("Сначала показаны : ");
-//                    search.areSiblings(scanner.nextLine(), scanner.nextLine());
-//                    break;
+                case "4": // отсортировать задачи по приоритету
+                    System.out.println("Сначала показаны задачи с наивысшим приоритетом : ");
+                    planner.sortByPrior();
+                    planner.showAll();
+                    break;
                 case "5": // выполнить запись планера в файл
                     saveFile();
                     break;
-//                case "6": // добавить новую задачу
-//                    System.out.print("Введите имя: ");
-//                    planner.totalSearch(scanner.nextLine());
-//                    break;
+                case "6": // добавить новую задачу
+                    planner.add(add.makeNewTask());
+                    break;
                 case "7": // изменить задачу
-                    menu.selectSearchType();
+                    System.out.println("Введите Id задачи, которую меняем: ");
+                    changeTask(planner.getById(scanner.nextInt()));
 
                 case "0": // выход
                     System.exit(0);
@@ -49,37 +55,53 @@ public class UserInterface {
             }
         }
     }
-    public void saveFile(){
-        while (true){
-            switch (menu.selectSaveType()){
-                case "1": // CSV
+
+    public void saveFile() {
+        while (true) {
+            switch (menu.selectSaveType()) {
+                case "1" -> // CSV
 //                    planner.showAll();
-                    System.out.println("Сохранено в CSV");
-                    break;
-                case "2": // JSOM
-                    System.out.print("Сохранено в JSOM");
-                    break;
-                case "3": //XML
-                    System.out.print("Сохранено в XML");
-                    break;
-                case "4": //XML
-                    start();
-                    break;
-                case "0": // выход
-                    System.exit(0);
-                    break;
-                default:
-                    System.out.println("Неверный ввод");
-
+                        System.out.println("Сохранено в CSV");
+                case "2" -> // JSOM
+                        System.out.print("Сохранено в JSOM");
+                case "3" -> //XML
+                        System.out.print("Сохранено в XML");
+                case "4" -> //меню
+                        start();
+                case "0" -> // выход
+                        System.exit(0);
+                default -> System.out.println("Неверный ввод");
             }
         }
     }
-public  void changeTask(){
-        while (true){
-           switch (menu.selectTaskMeth()){
-               case "1": //меняем тему
-           }
+
+    public void changeTask(Task changing) {
+        while (true) {
+            switch (menu.selectTaskMeth()) {
+                case "1" -> { // меняем тему
+                    System.out.println("Введите новую тему:");
+                    changing.setSubject(scanner.nextLine());
+                }
+                case "2" -> { // имя автора
+                    System.out.print("Введите нового автора");
+                    changing.setAuthor(scanner.nextLine());
+                }
+                case "3" -> { //приоритет
+                    System.out.print("1 - низкий, 2 - высокий, 3 - наивысший");
+                    changing.setPriority(scanner.nextInt());
+                }
+                case "4" -> { //дедлайн
+                    System.out.print("Введите новый дедлайн");
+                    changing.setEndOfTask(scanner.nextLine());
+                }
+                case "5" -> //меню
+                        start();
+                case "0" -> // выход
+                        System.exit(0);
+                default -> System.out.println("Неверный ввод");
+            }
         }
-}
+    }
+
 
 }
