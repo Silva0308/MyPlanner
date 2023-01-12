@@ -76,6 +76,17 @@ public class Task implements Comparable<Task> {
         this.author = author;
     }
 
+    public String getAddTime() {
+        return addTime;
+    }
+
+    public String getAddDate() {
+        return addDate;
+    }
+
+    public String getEndOfTask() {
+        return endOfTask;
+    }
 
     public int getId() {
         return id;

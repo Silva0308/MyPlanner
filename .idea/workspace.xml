@@ -4,15 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="81f7cb5f-07a8-46a9-80e7-ffede8918328" name="Changes" comment="точка перед компаратором">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Add.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/PlannerIterator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaskComparator.java" afterDir="false" />
+    <list default="true" id="81f7cb5f-07a8-46a9-80e7-ffede8918328" name="Changes" comment="сортировка, добаление, изменение">
+      <change afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/CsvWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Format.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/JsonWriter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Planner.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Planner.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Planner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SaveController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/SaveModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/XmlWriter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Planner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Planner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlannerIterator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlannerIterator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Saver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Saver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserInterface.java" afterDir="false" />
     </list>
@@ -43,13 +49,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -80,13 +86,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673447667702</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="сортировка, добаление, изменение">
+      <created>1673469355976</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673469355976</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value=" меню, сортировка, поиск" />
     <MESSAGE value="сортировка" />
     <MESSAGE value="точка перед компаратором" />
-    <option name="LAST_COMMIT_MESSAGE" value="точка перед компаратором" />
+    <MESSAGE value="сортировка, добаление, изменение" />
+    <option name="LAST_COMMIT_MESSAGE" value="сортировка, добаление, изменение" />
   </component>
 </project>

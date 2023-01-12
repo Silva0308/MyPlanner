@@ -1,0 +1,50 @@
+{
+"id" : 1, {
+"Task":Купить елку,
+"author":"Валерия",
+"adding time":"10:55"
+"adding date":"12:01:2023"
+"deadline":"31.12"
+"priority":"наивысший приоритет"
+}
+}
+{
+"id" : 2, {
+"Task":Задача 1,
+"author":"неизвестный",
+"adding time":"10:55"
+"adding date":"12:01:2023"
+"deadline":"бессрочно"
+"priority":"приоритет не установлен"
+}
+}
+{
+"id" : 3, {
+"Task":Пригласить друзей,
+"author":"Валерия",
+"adding time":"10:55"
+"adding date":"12:01:2023"
+"deadline":"29.12"
+"priority":"наивысший приоритет"
+}
+}
+{
+"id" : 4, {
+"Task":Купить подарки,
+"author":"Валерия",
+"adding time":"10:55"
+"adding date":"12:01:2023"
+"deadline":"29.12"
+"priority":"приоритет низкий"
+}
+}
+{
+"id" : 5, {
+"Task":Приготовить наряд,
+"author":"Валерия",
+"adding time":"10:55"
+"adding date":"12:01:2023"
+"deadline":"29.12"
+"priority":"средний приоритет"
+}
+}

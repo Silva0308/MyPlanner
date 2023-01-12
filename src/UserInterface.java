@@ -7,13 +7,16 @@ public class UserInterface {
     private final Menu menu;
     private final Planner planner;
     private final Add add;
+    protected static String csvPath = "/Users/test/Documents/Программирование/ООП/Seminars/MyPlanner/src/Planner.csv";
+    protected static String jsonPath = "/Users/test/Documents/Программирование/ООП/Seminars/MyPlanner/src/Planner.json";
+    protected static String xmlPath = "/Users/test/Documents/Программирование/ООП/Seminars/MyPlanner/src/Planner.xml";
+
 
     public UserInterface(Scanner scanner, Menu menu, Planner planner, Add add) {
         this.scanner = scanner;
         this.menu = menu;
         this.planner = planner;
         this.add = add;
-
     }
 
     public void start() {
@@ -57,15 +60,40 @@ public class UserInterface {
     }
 
     public void saveFile() {
+        PlannerIterator plannerIterator = new PlannerIterator(planner);
         while (true) {
             switch (menu.selectSaveType()) {
                 case "1" -> // CSV
-//                    planner.showAll();
-                        System.out.println("Сохранено в CSV");
+                {
+                    while (plannerIterator.hasNext()) {
+                        SaveModel<Task> saved = new SaveModel<>(plannerIterator.next());
+                        saved.setFormat(new CsvWriter());
+                        saved.setPath(csvPath);
+                        saved.save();
+                    }
+                    System.out.println("Сохранено в CSV");
+                }
+
                 case "2" -> // JSOM
-                        System.out.print("Сохранено в JSOM");
+                {
+                    while (plannerIterator.hasNext()) {
+                        SaveModel<Task> saved = new SaveModel<>(plannerIterator.next());
+                        saved.setFormat(new JsonWriter());
+                        saved.setPath(jsonPath);
+                        saved.save();
+                    }
+                    System.out.print("Сохранено в JSON");
+                }
                 case "3" -> //XML
-                        System.out.print("Сохранено в XML");
+                {
+                    while (plannerIterator.hasNext()) {
+                        SaveModel<Task> saved = new SaveModel<>(plannerIterator.next());
+                        saved.setFormat(new XmlWriter());
+                        saved.setPath(xmlPath);
+                        saved.save();
+                    }
+                    System.out.print("Сохранено в XML");
+                }
                 case "4" -> //меню
                         start();
                 case "0" -> // выход

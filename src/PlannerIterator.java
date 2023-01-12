@@ -13,7 +13,7 @@ public class PlannerIterator implements Iterator<Task> {
 
     @Override
     public boolean hasNext() {
-        return index < tasks.getSize();
+        return index < tasks.getSize()-1;
     }
 
     @Override
